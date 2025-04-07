@@ -1,4 +1,4 @@
-* This repository is for fine-tuning ESM-2 & ESM-3 models *
+This repository is for fine-tuning ESM-2 & ESM-3 models 
 
 The goal of finetuning is for customizing the model for a desired task 
 
