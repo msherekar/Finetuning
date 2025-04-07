@@ -32,7 +32,7 @@ def main():
                                                    args.lr, device, args.num_labels,
                                                    args.log_dir)
     
-    # select based on best validation accuracy).
+    # select based on best validation accuracy later
     best_fold = "Fold_1"
     best_state_dict = fold_models[best_fold]
     

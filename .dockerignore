@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.ipynb
+*.npy
+*.pt
+logs/
+finetune_results/
