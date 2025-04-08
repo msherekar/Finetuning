@@ -1,17 +1,20 @@
-FROM pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
+# Start from miniconda base image
+FROM continuumio/miniconda3
 
+# Set working directory inside container
 WORKDIR /app
 
-# Install Python dependencies
-COPY pyproject.toml .
-RUN pip install poetry && poetry config virtualenvs.create false && poetry install
+# Copy your environment file and install Conda env
+COPY environment.yml .
+RUN conda env create -f environment.yml
 
-# Copy source code
+# Make conda env your default shell
+SHELL ["conda", "run", "-n", "protein-finetune", "/bin/bash", "-c"]
+
+# Copy all source code into container
 COPY . .
 
-# Default command (can be overridden)
-CMD ["python", "train_debug.py", "train-debug"]
+# Set default command
+CMD ["conda", "run", "-n", "protein-finetune", "python", "train_debug.py", "train-debug"]
 
-# Build: docker build -t protein-trainer .
-# Run: docker run --rm protein-trainer --help
 

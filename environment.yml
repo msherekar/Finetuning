@@ -1,0 +1,22 @@
+name: protein-finetune
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch=2.1.0
+  - torchvision
+  - cudatoolkit=11.8  # only needed if using GPU in Docker
+  - numpy
+  - pandas
+  - scikit-learn
+  - transformers
+  - lightning
+  - ray
+  - typer
+  - mlflow
+  - torchmetrics
+  - pip
+  - pip:
+    - sentencepiece  
